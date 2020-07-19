@@ -1,0 +1,17 @@
+{
+  "name": "narratory-adapters",
+  "version": "0.1.0",
+  "description": "A library of output adapters for the Narratory chatbot platform",
+  "main": "out/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "narratory": "^0.13.19"
+  }
+}

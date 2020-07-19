@@ -1,0 +1,5 @@
+export { facebookAdapter } from "./facebookMessenger"
+export { kommunicateAdapter } from "./kommunicate"
+export { generalAdapter } from "./other"
+export { slackAdapter } from "./slack"
+export { voximplantAdapter } from "./voximplant"
