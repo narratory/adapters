@@ -133,6 +133,10 @@ const getMessages = (messages: RichSaySingleText[]) => {
   return fbMessages
 }
 
+/**
+ * Facebook messenger adapter, supporting a subset of their rich message formats.
+ * @TODO: Lists currently broken
+ */
 export const facebookAdapter = ({
   messages,
 }: {

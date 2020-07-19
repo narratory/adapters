@@ -1,5 +1,8 @@
 import { RichSaySingleText } from "./util"
 
+/**
+ * Adapter for Slack, currently only supporting text
+ */
 export const slackAdapter = ({
   messages,
 }: {

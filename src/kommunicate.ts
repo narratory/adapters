@@ -150,21 +150,12 @@ const getKommunicateMessage = ({
     }
   }
 
-  //   // Suggestions
-  //   if (last && message.suggestions) {
-  //     kommunicateMessage.payload.metadata = {
-  //       ...kommunicateMessage.payload.metadata,
-  //       KM_AUTO_SUGGESTION: {
-  //         // placeholder: "enter city name ",
-  //         source: message.suggestions
-  //       },
-  //       payload: message.suggestions
-  //     }
-  //   }
-
   return kommunicateMessage
 }
 
+/**
+ * Adapter for the Kommunicate.io web/app chat platform, supporting a subset of their rich messages
+ */
 export const kommunicateAdapter = ({
   messages,
 }: {

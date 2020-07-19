@@ -2,6 +2,9 @@ import { RichSaySingleText, joinSSMLWithBreak, cleanSSML } from "./util"
 
 const BREAK_LENGTH = 500
 
+/**
+ * Adapter for Voximplant telephony gateway. Using SSML primarily, but text as backup if SSML not provided
+ */
 export const voximplantAdapter = ({
   messages,
 }: {
