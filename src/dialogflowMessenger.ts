@@ -8,7 +8,7 @@ const getCard = (card: Card) => {
     card.subtitle = card.description.substr(0, 80)
   }
 
-  return {
+  const response: any[] = [{
     "type": "info",
     "title": card.title,
     "subtitle": card.subtitle,
@@ -17,25 +17,33 @@ const getCard = (card: Card) => {
         "rawUrl": card.image ? card.image.url : undefined
       }
     }
+  }]
+
+  if (card.buttons) {
+    card.buttons.forEach((button) => {
+      response.push(getButton(button)[0])
+    })
   }
+
+  return response
 }
 
 //The image response type is an image card that users can click or touch.
 const getImage = (image: Image) => {
-  return {
+  return [{
     "type": "image",
     "rawUrl": image.url,
     "accessibilityText": image.alt
-  }
+  }]
 }
 
 //The button response type is a small button with an icon that users can click or touch.
 const getButton = (button: Button) => {
-  return {
+  return [{
     "type": "button",
     "text": button.text,
     "link": button.url
-  }
+  }]
 }
 
 //The list response type is a card with multiple options users can select from.
@@ -56,17 +64,17 @@ const getList = (list: List) => {
     }
   })
 
-  return items
+  return [items]
 }
 
 const getTextMessage = (message: RichSaySingleText) => {
   return {
-    "text": { "text": [message.text] }
+    "text": { "text": message.text }
   }
 }
 
 const getContent = (content: Content) => {
-  let contentResponse;
+  let contentResponse
   switch (content.type) {
     case "card":
       contentResponse = getCard(content as Card)
@@ -87,9 +95,7 @@ const getContent = (content: Content) => {
   return {
     "payload": {
       "richContent": [
-        [
-          contentResponse
-        ]
+        contentResponse
       ]
     }
   }
@@ -124,13 +130,13 @@ const getMessages = (messages: RichSaySingleText[]) => {
   const responses: any[] = []
 
   messages.forEach((message) => {
-    if(message.text){
-      responses.push(getTextMessage(message));
+    if (message.text) {
+      responses.push(getTextMessage(message))
     }
-    if(message.content){
-      responses.push(getContent(message.content));
+    if (message.content) {
+      responses.push(getContent(message.content))
     }
-    if(message.suggestions){
+    if (message.suggestions) {
       responses.push(getSuggestions(message.suggestions))
     }
   })
