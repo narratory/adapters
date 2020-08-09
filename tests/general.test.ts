@@ -32,11 +32,11 @@ test("test voximplant adapter", () => {
 })
 
 test("test dialogflow messenger adapter", () => {
-  const response = dialogflowMessengerAdapter({messages})
+  const response = dialogflowMessengerAdapter({ messages })
 
   expect(response.fulfillmentMessages).toHaveLength(3)
-  expect(response.fulfillmentMessages[0].text.text).toEqual("foo")
-  expect(response.fulfillmentMessages[1].text.text).toEqual("bar")
+  expect(response.fulfillmentMessages[0].text.text[0]).toEqual("foo")
+  expect(response.fulfillmentMessages[1].text.text[0]).toEqual("bar")
   expect(response.fulfillmentMessages[2].payload.richContent[0]).toHaveLength(3)
   expect(response.fulfillmentMessages[2].payload.richContent[0][0].title).toEqual("Some title")
   expect(response.fulfillmentMessages[2].payload.richContent[0][1].text).toEqual("Take me to heaven")

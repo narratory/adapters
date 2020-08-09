@@ -65,6 +65,11 @@ const getList = (list: List) => {
       type: "list",
       title: item.title,
       subtitle: item.description,
+      // event: {
+      //   name: item.title,
+      //   languageCode: "en-US",
+      //   parameters: {},
+      // },
     })
     if (!last) {
       items.push({
