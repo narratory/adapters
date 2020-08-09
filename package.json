@@ -1,6 +1,6 @@
 {
   "name": "narratory-adapters",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A library of output adapters for the Narratory chatbot platform",
   "main": "out/src/index.js",
   "scripts": {
