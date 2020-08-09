@@ -2,8 +2,10 @@
   "name": "narratory-adapters",
   "version": "0.1.0",
   "description": "A library of output adapters for the Narratory chatbot platform",
-  "main": "out/index.js",
+  "main": "out/src/index.js",
   "scripts": {
+    "prepublish": "tsc --declaration",
+    "watch": "tsc --watch --declaration",
     "test": "jest"
   },
   "author": "",
