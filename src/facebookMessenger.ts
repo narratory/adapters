@@ -1,6 +1,8 @@
 import { RichSaySingleText } from "./util"
 import { Content, Card, List, Button } from "narratory"
 
+const quickButtonSpecialInputs = ["user_phone_number", "user_email"]
+
 const getButton = (button: Button) => {
   return {
     title: button.text,
@@ -104,10 +106,16 @@ const getTextMessage = ({
 const getSuggestions = (suggestions: string[] | undefined) => {
   return suggestions && suggestions.length > 0
     ? suggestions.map((suggestion) => {
-        return {
-          content_type: "text",
-          title: suggestion,
-          payload: suggestion,
+        if (quickButtonSpecialInputs.includes(suggestion.toLowerCase())) {
+          return {
+            content_type: suggestion,
+          }
+        } else {
+          return {
+            content_type: "text",
+            title: suggestion,
+            payload: suggestion,
+          }
         }
       })
     : undefined

@@ -1,6 +1,6 @@
 {
   "name": "narratory-adapters",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A library of output adapters for the Narratory chatbot platform",
   "main": "out/src/index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "watch": "tsc --watch --declaration",
     "test": "jest"
   },
-  "author": "",
+  "repository": "git://github.com/narratory/narratory-adapters.git",
+  "author": "luddilo",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
